@@ -64,23 +64,26 @@
         </section>
 
         <!-- Featured Products -->
-        <section class="py-4">
+        <section class="py-5">
             <div class="container">
-                 <div class="section-header text-center mb-5">
+                <div class="section-header text-center mb-5">
                     <p class="section-label">— BEST SELLERS —</p>
-                    <h2 class="display-5 fw-bold">Featured Products</h2>
-                    <div class="divider-line mx-auto"></div>
+                    <h2 class="section-title">Featured Products</h2>
+                    <div class="divider-line"></div>
                     <p class="text-muted">Our most popular items this week</p>
                 </div>
                 
                 <div class="row g-4">
                     <!-- Product Card 1 -->
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="card product-card h-100">
-                            <img src="images/wirelessheadphones.jpg" class="card-img-top" alt="Wireless Headphones">
+                            <div class="card-img-wrapper">
+                                <img src="images/wirelessheadphones.jpg" class="card-img-top" alt="Wireless Headphones">
+                            </div>
+                            <div class="card-badge">HOT</div>
                             <div class="card-body">
                                 <h5 class="card-title">Wireless Headphones</h5>
-                                <p class="card-text text-muted">Premium noise-cancelling headphones</p>
+                                <p class="card-text">Premium noise-cancelling headphones</p>
                                 <p class="card-price">$79.99</p>
                                 <button class="btn btn-primary-custom w-100" onclick="addToCart('Wireless Headphones')">
                                     <i class="fas fa-cart-plus"></i> Add to Cart
@@ -90,13 +93,16 @@
                     </div>
 
                     <!-- Product Card 2 -->
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="card product-card h-100">
-                            <img src="images/smartwatch.jpg" class="card-img-top" alt="Smart Watch">
+                            <div class="card-img-wrapper">
+                                <img src="images/smartwatch.jpg" class="card-img-top" alt="Smart Watch">
+                            </div>
+                            <div class="card-badge sale">SALE</div>
                             <div class="card-body">
                                 <h5 class="card-title">Smart Watch Pro</h5>
-                                <p class="card-text text-muted">Track your fitness and notifications</p>
-                                <p class="card-price">$149.99</p>
+                                <p class="card-text">Track your fitness and notifications</p>
+                                <p class="card-price">$149.99 <span class="old-price">$199.99</span></p>
                                 <button class="btn btn-primary-custom w-100" onclick="addToCart('Smart Watch Pro')">
                                     <i class="fas fa-cart-plus"></i> Add to Cart
                                 </button>
@@ -105,12 +111,15 @@
                     </div>
 
                     <!-- Product Card 3 -->
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="card product-card h-100">
-                            <img src="images/USB C Hub.jpg" class="card-img-top" alt="USB Hub">
+                            <div class="card-img-wrapper">
+                                <img src="images/USB C Hub.jpg" class="card-img-top" alt="USB Hub">
+                            </div>
+                            <div class="card-badge new">NEW</div>
                             <div class="card-body">
                                 <h5 class="card-title">USB-C Hub 7-in-1</h5>
-                                <p class="card-text text-muted">Expand your connectivity options</p>
+                                <p class="card-text">Expand your connectivity options</p>
                                 <p class="card-price">$39.99</p>
                                 <button class="btn btn-primary-custom w-100" onclick="addToCart('USB-C Hub')">
                                     <i class="fas fa-cart-plus"></i> Add to Cart
@@ -120,12 +129,14 @@
                     </div>
 
                     <!-- Product Card 4 -->
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="card product-card h-100">
-                            <img src="images/phonestand.jpg" class="card-img-top" alt="Phone Stand">
+                            <div class="card-img-wrapper">
+                                <img src="images/phonestand.jpg" class="card-img-top" alt="Phone Stand">
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title">Adjustable Phone Stand</h5>
-                                <p class="card-text text-muted">Ergonomic design for comfortable viewing</p>
+                                <p class="card-text">Ergonomic design for comfortable viewing</p>
                                 <p class="card-price">$19.99</p>
                                 <button class="btn btn-primary-custom w-100" onclick="addToCart('Phone Stand')">
                                     <i class="fas fa-cart-plus"></i> Add to Cart
@@ -134,9 +145,15 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- View All Button -->
+                <div class="text-center mt-5">
+                    <a href="shop.html" class="btn btn-outline-custom">
+                        View All Products <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
             </div>
         </section>
-
         <!-- Call to Action -->
         <section class="py-5 text-center" style="background: var(--secondary); color: white; border-radius: 20px; margin: 0 20px;">
             <div class="container">
