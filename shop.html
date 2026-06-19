@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop premium gadgets and electronics at TechZone">
+    <title>Shop - TechZone</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+        <!-- Navigation Bar -->
+         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-laptop-code"></i> TechZone
+                </a>
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                 </button>
+                 <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge bg-danger" id="cartCount" style="display:none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>   
+
+        <!-- Main Content -->
+         <main class="main-content">
+            <!-- Page Header -->
+        <section class="page-header py-4">
+            <div class="container">
+                <div class="section-header text-center mb-4">
+                    <p class="section-label">— OUR COLLECTION —</p>
+                    <h1 class="section-title">Shop All Products</h1>
+                    <div class="divider-line"></div>
+                    <p class="text-muted">Browse our premium gadgets and electronics</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filter Bar -->
+        <section class="filter-section py-3">
+            <div class="container">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-6">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search products..." onkeyup="filterProducts()">
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="filter-buttons">
+                            <button class="btn btn-outline-custom btn-sm" onclick="filterCategory('all')">All</button>
+                            <button class="btn btn-outline-custom btn-sm" onclick="filterCategory('audio')">Audio</button>
+                            <button class="btn btn-outline-custom btn-sm" onclick="filterCategory('wearables')">Wearables</button>
+                            <button class="btn btn-outline-custom btn-sm" onclick="filterCategory('accessories')">Accessories</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-section py-4">
+            <div class="container">
+                <div class="row g-4" id="productGrid">
+                    <!-- Product 1 -->
+                    <div class="col-lg-3 col-md-6 product-item" data-category="audio">
+                        <div class="card product-card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="images/wirelessheadphones.jpg" class="card-img-top" alt="Wireless Headphones">
+                            </div>
+                            <div class="card-badge">HOT</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Wireless Headphones</h5>
+                                <p class="card-text">Premium noise-cancelling headphones</p>
+                                <p class="card-price">$79.99</p>
+                                <button class="btn btn-primary-custom w-100" onclick="addToCart('Wireless Headphones')">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-lg-3 col-md-6 product-item" data-category="wearables">
+                        <div class="card product-card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="images/smartwatch.jpg" class="card-img-top" alt="Smart Watch">
+                            </div>
+                            <div class="card-badge sale">SALE</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Smart Watch Pro</h5>
+                                <p class="card-text">Track your fitness and notifications</p>
+                                <p class="card-price">$149.99 <span class="old-price">$199.99</span></p>
+                                <button class="btn btn-primary-custom w-100" onclick="addToCart('Smart Watch Pro')">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-lg-3 col-md-6 product-item" data-category="accessories">
+                        <div class="card product-card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="images/USB C Hub.jpg" class="card-img-top" alt="USB Hub">
+                            </div>
+                            <div class="card-badge new">NEW</div>
+                            <div class="card-body">
+                                <h5 class="card-title">USB-C Hub 7-in-1</h5>
+                                <p class="card-text">Expand your connectivity options</p>
+                                <p class="card-price">$39.99</p>
+                                <button class="btn btn-primary-custom w-100" onclick="addToCart('USB-C Hub')">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="col-lg-3 col-md-6 product-item" data-category="accessories">
+                        <div class="card product-card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="images/phonestand.jpg" class="card-img-top" alt="Phone Stand">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Adjustable Phone Stand</h5>
+                                <p class="card-text">Ergonomic design for comfortable viewing</p>
+                                <p class="card-price">$19.99</p>
+                                <button class="btn btn-primary-custom w-100" onclick="addToCart('Phone Stand')">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="col-lg-3 col-md-6 product-item" data-category="audio">
+                        <div class="card product-card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="https://via.placeholder.com/300x200/2563eb/ffffff?text=Bluetooth+Speaker" class="card-img-top" alt="Bluetooth Speaker">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bluetooth Speaker</h5>
+                                <p class="card-text">Portable speaker with deep bass</p>
+                                <p class="card-price">$59.99</p>
+                                <button class="btn btn-primary-custom w-100" onclick="addToCart('Bluetooth Speaker')">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="col-lg-3 col-md-6 product-item" data-category="wearables">
+                        <div class="card product-card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="https://via.placeholder.com/300x200/7c3aed/ffffff?text=Fitness+Band" class="card-img-top" alt="Fitness Band">
+                            </div>
+                            <div class="card-badge sale">SALE</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Fitness Band</h5>
+                                <p class="card-text">Track your daily activity and sleep</p>
+                                <p class="card-price">$49.99 <span class="old-price">$69.99</span></p>
+                                <button class="btn btn-primary-custom w-100" onclick="addToCart('Fitness Band')">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="col-lg-3 col-md-6 product-item" data-category="accessories">
+                        <div class="card product-card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="https://via.placeholder.com/300x200/22c55e/ffffff?text=Wireless+Charger" class="card-img-top" alt="Wireless Charger">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Wireless Charger Pad</h5>
+                                <p class="card-text">Qi-compatible fast charging</p>
+                                <p class="card-price">$29.99</p>
+                                <button class="btn btn-primary-custom w-100" onclick="addToCart('Wireless Charger')">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="col-lg-3 col-md-6 product-item" data-category="audio">
+                        <div class="card product-card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="https://via.placeholder.com/300x200/f59e0b/ffffff?text=Gaming+Headset" class="card-img-top" alt="Gaming Headset">
+                            </div>
+                            <div class="card-badge new">NEW</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Gaming Headset</h5>
+                                <p class="card-text">Surround sound with noise-cancelling mic</p>
+                                <p class="card-price">$89.99</p>
+                                <button class="btn btn-primary-custom w-100" onclick="addToCart('Gaming Headset')">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+         </main>
+         <!-- Footer -->
+          <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="fas fa-laptop-code"></i> TechZone</h5>
+                    <p>Your trusted source for premium gadgets and electronics. Quality guaranteed.</p>
+                    <p><strong>Student ID:</strong> 220526</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="shop.html">Audio</a></li>
+                        <li><a href="shop.html">Wearables</a></li>
+                        <li><a href="shop.html">Accessories</a></li>
+                        <li><a href="shop.html">Smart Home</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <br><br>
+                    <p><i class="fas fa-envelope"></i> support@techzone.com</p>
+                    <p><i class="fas fa-phone"></i> +254 700 123 456</p>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p>&copy; 2026 TechZone. All rights reserved. | Student: 220526</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
