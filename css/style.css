@@ -382,3 +382,69 @@ a:hover {
     from { opacity: 1; transform: translateX(-50%) translateY(0); }
     to { opacity: 0; transform: translateX(-50%) translateY(50px); }
 }
+
+/* Shop Page - Search and Filter */
+/* Page Header */
+.page-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-light);
+}
+/* Search Box */
+.search-box {
+    position: relative;
+}
+.search-box i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray);
+}
+.search-box input {
+    padding-left: 44px;
+    border-radius: 12px;
+    border: 2px solid var(--gray-light);
+    height: 50px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+.search-box input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+/* Filter Buttons */
+.filter-buttons .btn {
+    margin: 0 4px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.filter-buttons .btn.active {
+    background: var(--primary-gradient);
+    color: var(--white);
+    border-color: var(--primary);
+}
+/* No Results Message */
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+}
+.no-results i {
+    font-size: 3rem;
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .search-box input {
+        height: 44px;
+        font-size: 0.85rem;
+    }
+    .filter-buttons .btn {
+        padding: 4px 12px;
+        font-size: 0.7rem;
+        margin: 2px;
+    }
+}
