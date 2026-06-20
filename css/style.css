@@ -495,13 +495,18 @@ a:hover {
     justify-content: center;
     background: var(--primary-gradient);
     border-radius: 12px;
-    color: var(--black);
+    color: var(--white);
     font-size: 1.2rem;
 }
 .contact-info-item h6 {
     font-weight: 600;
     margin-bottom: 2px;
     color: var(--dark);
+}
+.social-icons {
+    display: flex;
+    gap: 12px;
+    color: var(--gray);
 }
 .contact-info-item p {
     color: var(--gray);
