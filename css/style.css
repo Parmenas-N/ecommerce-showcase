@@ -495,7 +495,7 @@ a:hover {
     justify-content: center;
     background: var(--primary-gradient);
     border-radius: 12px;
-    color: var(--white);
+    color: var(--black);
     font-size: 1.2rem;
 }
 .contact-info-item h6 {
