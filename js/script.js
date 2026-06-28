@@ -335,3 +335,72 @@ function openLightbox(element) {
         }
     });
 }
+
+//Shop  page - Filter functions
+function filterProducts() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+    
+    const query = searchInput.value.toLowerCase().trim();
+    const products = document.querySelectorAll('.product-item');
+    let visibleCount = 0;
+    
+    products.forEach(product => {
+        const title = product.querySelector('.card-title')?.textContent?.toLowerCase() || '';
+        const desc = product.querySelector('.card-text')?.textContent?.toLowerCase() || '';
+        
+        if (title.includes(query) || desc.includes(query)) {
+            product.style.display = 'block';
+            visibleCount++;
+        } else {
+            product.style.display = 'none';
+        }
+    });
+    
+    const noResults = document.getElementById('noResults');
+    if (noResults) {
+        if (visibleCount === 0) {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+        }
+    }
+}
+
+function filterCategory(category) {
+    const products = document.querySelectorAll('.product-item');
+    const buttons = document.querySelectorAll('.filter-buttons .btn');
+    
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase() === category || 
+            (category === 'all' && btn.textContent.toLowerCase() === 'all')) {
+            btn.classList.add('active');
+        }
+    });
+    
+    let visibleCount = 0;
+    products.forEach(product => {
+        const productCategory = product.dataset.category;
+        if (category === 'all' || productCategory === category) {
+            product.style.display = 'block';
+            visibleCount++;
+        } else {
+            product.style.display = 'none';
+        }
+    });
+    
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.value = '';
+    }
+    
+    const noResults = document.getElementById('noResults');
+    if (noResults) {
+        if (visibleCount === 0) {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+        }
+    }
+}
