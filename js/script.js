@@ -578,3 +578,34 @@ function filterCategory(category) {
     `;
     document.head.appendChild(style);
 })();
+
+// Page  initialization
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 TechZone loaded successfully!');
+    console.log('👤 Student: 220526');
+    
+    updateCartBadge();
+    
+    if (document.getElementById('cartItemsContainer')) {
+        renderCart();
+    }
+    
+    if (document.getElementById('productGrid')) {
+        const grid = document.getElementById('productGrid');
+        const noResults = document.createElement('div');
+        noResults.id = 'noResults';
+        noResults.className = 'no-results';
+        noResults.style.cssText = `
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            width: 100%;
+        `;
+        noResults.innerHTML = `
+            <i class="fas fa-search" style="font-size: 3rem; color: #94a3b8;"></i>
+            <h4 class="mt-3">No products found</h4>
+            <p class="text-muted">Try adjusting your search or filter</p>
+        `;
+        grid.parentNode.appendChild(noResults);
+    }
+});
