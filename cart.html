@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your shopping cart at TechZone">
+    <title>Cart - TechZone</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-laptop-code"></i> TechZone
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge bg-danger" id="cartCount">3</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Content -->
+    <main class="main-content">
+        
+        <!-- Page Header -->
+        <section class="page-header py-4">
+            <div class="container">
+                <div class="section-header text-center mb-4">
+                    <p class="section-label">— YOUR CART —</p>
+                    <h1 class="section-title">Shopping Cart</h1>
+                    <div class="divider-line"></div>
+                    <p class="text-muted">Review your items before checkout</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section class="cart-section py-4">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Cart Items -->
+                    <div class="col-lg-8">
+                        <div class="cart-items-wrapper">
+                            
+                            <!-- Cart Item 1 -->
+                            <div class="cart-item">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 col-3">
+                                        <img src="https://via.placeholder.com/80x80/2563eb/ffffff?text=Headphones" alt="Wireless Headphones" class="cart-item-img">
+                                    </div>
+                                    <div class="col-md-4 col-6">
+                                        <h6 class="cart-item-title">Wireless Headphones</h6>
+                                        <p class="cart-item-desc">Premium noise-cancelling headphones</p>
+                                    </div>
+                                    <div class="col-md-2 col-3">
+                                        <div class="quantity-control">
+                                            <button class="qty-btn" onclick="updateQuantity(this, -1)">-</button>
+                                            <span class="qty-value">1</span>
+                                            <button class="qty-btn" onclick="updateQuantity(this, 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <p class="cart-item-price">$79.99</p>
+                                    </div>
+                                    <div class="col-md-2 col-3 text-end">
+                                        <button class="remove-btn" onclick="removeItem(this)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 2 -->
+                            <div class="cart-item">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 col-3">
+                                        <img src="https://via.placeholder.com/80x80/7c3aed/ffffff?text=Smartwatch" alt="Smart Watch" class="cart-item-img">
+                                    </div>
+                                    <div class="col-md-4 col-6">
+                                        <h6 class="cart-item-title">Smart Watch Pro</h6>
+                                        <p class="cart-item-desc">Track your fitness and notifications</p>
+                                    </div>
+                                    <div class="col-md-2 col-3">
+                                        <div class="quantity-control">
+                                            <button class="qty-btn" onclick="updateQuantity(this, -1)">-</button>
+                                            <span class="qty-value">1</span>
+                                            <button class="qty-btn" onclick="updateQuantity(this, 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <p class="cart-item-price">$149.99</p>
+                                    </div>
+                                    <div class="col-md-2 col-3 text-end">
+                                        <button class="remove-btn" onclick="removeItem(this)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 3 -->
+                            <div class="cart-item">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 col-3">
+                                        <img src="https://via.placeholder.com/80x80/22c55e/ffffff?text=USB+Hub" alt="USB Hub" class="cart-item-img">
+                                    </div>
+                                    <div class="col-md-4 col-6">
+                                        <h6 class="cart-item-title">USB-C Hub 7-in-1</h6>
+                                        <p class="cart-item-desc">Expand your connectivity options</p>
+                                    </div>
+                                    <div class="col-md-2 col-3">
+                                        <div class="quantity-control">
+                                            <button class="qty-btn" onclick="updateQuantity(this, -1)">-</button>
+                                            <span class="qty-value">1</span>
+                                            <button class="qty-btn" onclick="updateQuantity(this, 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <p class="cart-item-price">$39.99</p>
+                                    </div>
+                                    <div class="col-md-2 col-3 text-end">
+                                        <button class="remove-btn" onclick="removeItem(this)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Continue Shopping -->
+                        <div class="mt-3">
+                            <a href="shop.html" class="btn btn-outline-custom">
+                                <i class="fas fa-arrow-left"></i> Continue Shopping
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="col-lg-4">
+                        <div class="order-summary">
+                            <h5 class="fw-bold mb-4">Order Summary</h5>
+                            
+                            <div class="summary-row">
+                                <span>Subtotal (3 items)</span>
+                                <span>$269.97</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span>$5.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax (10%)</span>
+                                <span>$26.99</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row total">
+                                <span><strong>Total</strong></span>
+                                <span><strong>$301.96</strong></span>
+                            </div>
+
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom w-100" onclick="checkout()">
+                                    <i class="fas fa-lock"></i> Proceed to Checkout
+                                </button>
+                            </div>
+
+                            <div class="mt-3 text-center">
+                                <p class="text-muted small">
+                                    <i class="fas fa-lock"></i> Secure checkout
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="fas fa-laptop-code"></i> TechZone</h5>
+                    <p>Your trusted source for premium gadgets and electronics. Quality guaranteed.</p>
+                    <p><strong>Student ID:</strong> 220526</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="shop.html">Audio</a></li>
+                        <li><a href="shop.html">Wearables</a></li>
+                        <li><a href="shop.html">Accessories</a></li>
+                        <li><a href="shop.html">Smart Home</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <br><br>
+                    <p><i class="fas fa-envelope"></i> support@techzone.com</p>
+                    <p><i class="fas fa-phone"></i> +254 700 123 456</p>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p>&copy; 2026 TechZone. All rights reserved. | Student: 220526</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
