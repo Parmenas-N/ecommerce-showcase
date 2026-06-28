@@ -215,3 +215,33 @@ function updateOrderSummary(subtotal, itemCount) {
         }
     }
 }
+
+//Checkout function
+function checkout() {
+    const cart = getCart();
+    if (cart.length === 0) {
+        showToast('❌ Your cart is empty!');
+        return;
+    }
+    
+    showToast('✅ Order placed successfully! Thank you for shopping at TechZone.');
+    
+    setTimeout(() => {
+        localStorage.removeItem('cart');
+        updateCartBadge();
+        renderCart();
+    }, 2000);
+    
+    const checkoutBtn = document.querySelector('.btn-primary-custom');
+    if (checkoutBtn && checkoutBtn.textContent.includes('Proceed')) {
+        checkoutBtn.disabled = true;
+        checkoutBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        setTimeout(() => {
+            checkoutBtn.innerHTML = '<i class="fas fa-check"></i> Order Placed!';
+            setTimeout(() => {
+                checkoutBtn.disabled = false;
+                checkoutBtn.innerHTML = '<i class="fas fa-lock"></i> Proceed to Checkout';
+            }, 1500);
+        }, 2000);
+    }
+}
