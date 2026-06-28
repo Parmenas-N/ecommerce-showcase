@@ -245,3 +245,93 @@ function checkout() {
         }, 2000);
     }
 }
+
+//Gallery  Page - filter
+function filterGallery(category) {
+    const items = document.querySelectorAll('.gallery-item');
+    const buttons = document.querySelectorAll('.filter-buttons .btn');
+    
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase() === category || 
+            (category === 'all' && btn.textContent.toLowerCase() === 'all')) {
+            btn.classList.add('active');
+        }
+    });
+    
+    items.forEach(item => {
+        const itemCategory = item.dataset.category;
+        if (category === 'all' || itemCategory === category) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+function openLightbox(element) {
+    const img = element.querySelector('img');
+    if (!img) return;
+    
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        cursor: pointer;
+        animation: fadeIn 0.3s ease;
+    `;
+    
+    const closeBtn = document.createElement('span');
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 2.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    `;
+    closeBtn.innerHTML = '✕';
+    closeBtn.onclick = function(e) {
+        e.stopPropagation();
+        document.body.removeChild(lightbox);
+    };
+    
+    const lightboxImg = document.createElement('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxImg.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    `;
+    
+    lightbox.appendChild(closeBtn);
+    lightbox.appendChild(lightboxImg);
+    document.body.appendChild(lightbox);
+    
+    lightbox.onclick = function(e) {
+        if (e.target === lightbox) {
+            document.body.removeChild(lightbox);
+        }
+    };
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const existingLightbox = document.querySelector('.lightbox');
+            if (existingLightbox) {
+                document.body.removeChild(existingLightbox);
+            }
+        }
+    });
+}
