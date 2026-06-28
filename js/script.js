@@ -404,3 +404,177 @@ function filterCategory(category) {
         }
     }
 }
+
+// Back to Top Button
+(function createBackToTop() {
+    const btn = document.createElement('button');
+    btn.innerHTML = '⬆';
+    btn.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #e94560;
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 999;
+        box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+    `;
+    
+    document.body.appendChild(btn);
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 400) {
+            btn.style.opacity = '1';
+            btn.style.visibility = 'visible';
+            btn.style.transform = 'translateY(0)';
+        } else {
+            btn.style.opacity = '0';
+            btn.style.visibility = 'hidden';
+            btn.style.transform = 'translateY(20px)';
+        }
+    });
+    
+    btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    btn.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.1)';
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+})();
+
+// Darkand Light mode toggle
+(function createDarkToggle() {
+    const btn = document.createElement('button');
+    btn.innerHTML = '🌙';
+    btn.style.cssText = `
+        position: fixed;
+        bottom: 90px;
+        right: 30px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: #0f3460;
+        color: white;
+        border: none;
+        font-size: 1.3rem;
+        cursor: pointer;
+        z-index: 999;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    `;
+    
+    document.body.appendChild(btn);
+    
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        btn.innerHTML = '☀️';
+    }
+    
+    btn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+            this.innerHTML = '☀️';
+            this.style.background = '#e94560';
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+            this.innerHTML = '🌙';
+            this.style.background = '#0f3460';
+        }
+    });
+})();
+
+// Dark mode styles
+(function addDarkStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        body.dark-mode {
+            background: #1a1a2e;
+            color: #eee;
+        }
+        body.dark-mode .card {
+            background: #16213e;
+            color: #eee;
+            border: 1px solid #2a2a4a;
+        }
+        body.dark-mode .navbar {
+            background: #0f0f1a !important;
+        }
+        body.dark-mode .footer {
+            background: #0f0f1a;
+        }
+        body.dark-mode .cart-items-wrapper,
+        body.dark-mode .order-summary,
+        body.dark-mode .contact-form-wrapper,
+        body.dark-mode .contact-info-wrapper {
+            background: #16213e;
+            color: #eee;
+        }
+        body.dark-mode .cart-item {
+            border-bottom-color: #2a2a4a;
+        }
+        body.dark-mode .cart-item-title {
+            color: #eee;
+        }
+        body.dark-mode .cart-item-price {
+            color: #eee;
+        }
+        body.dark-mode .summary-row {
+            color: #eee;
+        }
+        body.dark-mode .qty-btn {
+            background: #1a1a2e;
+            border-color: #2a2a4a;
+            color: #eee;
+        }
+        body.dark-mode .qty-btn:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+        body.dark-mode .section-title {
+            color: #eee;
+        }
+        body.dark-mode .page-header {
+            background: #16213e;
+        }
+        body.dark-mode .cart-item-desc {
+            color: #94a3b8;
+        }
+        body.dark-mode .mission-card,
+        body.dark-mode .feature-card,
+        body.dark-mode .team-card {
+            background: #16213e;
+            color: #eee;
+        }
+        body.dark-mode .accordion-item {
+            background: #16213e;
+        }
+        body.dark-mode .accordion-button {
+            background: #16213e;
+            color: #eee;
+        }
+        body.dark-mode .accordion-body {
+            background: #1a1a2e;
+            color: #ccc;
+        }
+        body.dark-mode .about-stat {
+            background: #1a1a2e;
+        }
+    `;
+    document.head.appendChild(style);
+})();
